@@ -1,0 +1,410 @@
+#include <stdio.h>
+#include <math.h>
+
+// Função para calcular o VPL
+float calcular_vpl(float fluxos_de_caixa[], int num_periodos, float taxa_desconto) {
+    float vpl = 0;
+    int t;
+    for (t = 0; t < num_periodos; t++) {
+        vpl += fluxos_de_caixa[t] / pow((1 + taxa_desconto), t);
+    }
+    return vpl;
+}
+
+int main() {
+    int num_periodos;
+    float taxa_desconto;
+    
+    // Solicita ao usuário o número de períodos
+    printf("Digite o numero de periodos: ");
+    scanf("%d", &num_periodos);
+    
+    // Aloca dinamicamente o array para armazenar os fluxos de caixa
+    float *fluxos_de_caixa = (float *)malloc(num_periodos * sizeof(float));
+    
+    // Solicita ao usuário os fluxos de caixa para cada período
+    printf("Digite os fluxos de caixa para cada período:\n");
+    int t;
+    for (t = 0; t < num_periodos; t++) {
+        printf("Fluxo de caixa no período %d: ", t + 1);
+        scanf("%f", &fluxos_de_caixa[t]);
+    }
+    
+    // Solicita ao usuário a taxa de desconto
+    printf("Digite a taxa de desconto (em decimal): ");
+    scanf("%f", &taxa_desconto);
+    
+    // Calcula o VPL
+    float vpl = calcular_vpl(fluxos_de_caixa, num_periodos, taxa_desconto);
+    
+    // Imprime o resultado
+    printf("O Valor Presente Líquido (VPL) do projeto eh: %.2f\n", vpl);
+    
+    // Libera a memória alocada para o array de fluxos de caixa
+    free(fluxos_de_caixa);
+    
+    return 0;
+}
+
+
+#include <stdio.h>
+#include <math.h>
+
+// Função para calcular o VPL
+float calcular_vpl(float fluxos_de_caixa[], int num_periodos, float taxa_desconto) {
+    float vpl = 0;
+    int t;
+    for (t = 0; t < num_periodos; t++) {
+        vpl += fluxos_de_caixa[t] / pow((1 + taxa_desconto), t);
+    }
+    return vpl;
+}
+
+int main() {
+    // Fluxos de caixa para cada período
+    float fluxos_de_caixa[] = {100, 200, 300};
+    // Número de períodos
+    int num_periodos = 3;
+    // Taxa de desconto
+    float taxa_desconto = 0.05;
+    
+    // Calcula o VPL
+    float vpl = calcular_vpl(fluxos_de_caixa, num_periodos, taxa_desconto);
+    
+    // Imprime o resultado
+    printf("O Valor Presente Líquido (VPL) do projeto é: %.2f\n", vpl);
+    
+    return 0;
+}
+
+#include <stdio.h>
+int main (){
+	
+	int A, B, troca=0;
+	
+	printf("Digite o valor de A: ");
+	scanf("%d", &A);
+	
+	printf("Digite o valor de B: ");
+	scanf("%d", &B);
+	
+	if(A!=B){
+		
+		troca=A;
+		A=B;
+		B=troca;
+		
+		printf("\nO valor de A antes da troca: %d", B);
+		printf("\nO valor de B antes da troca: %d", A);
+		printf("\nO valor de A depois da troca: %d", A);
+		printf("\nO valor de B depois da troca: %d", B);
+		
+	}else
+		printf("Valores iguais");
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
+
+
+#include <stdio.h>
+
+int main() {
+    int altura;
+    int linha; // Movida a declaração da variável linha para o início do escopo da função
+
+    printf("Digite a altura do triângulo: ");
+    scanf("%d", &altura);
+
+    // Loop para percorrer cada linha do triângulo
+    for (linha = 1; linha <= altura; linha++) {
+        int coluna; // Declaração da variável coluna dentro do loop
+
+        // Loop para percorrer cada coluna da linha atual
+        for (coluna = 1; coluna <= linha; coluna++) {
+            printf("*");
+        }
+        printf("\n"); // Nova linha após imprimir cada linha do triângulo
+    }
+
+    return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double numero, raiz;
+
+    // Solicita ao usuário para inserir o número
+    printf("Insira um numero: ");
+    scanf("%lf", &numero);
+
+    // Calcula a raiz quadrada do número
+    raiz = sqrt(numero);
+
+    // Exibe o resultado
+    printf("A raiz quadrada de %.2lf é %.2lf\n", numero, raiz);
+
+    return 0;
+}
+
+#include <stdio.h>
+int main (){
+	
+	double A, B;
+	int soma;
+	
+	printf("Digite um número");
+	scanf("%lf", &A);
+	
+	prinft("Digite outro número");
+	scanf("%lf", &B);
+	
+	soma = A+B;
+	
+	printf("Resultado = %.4d", soma);	
+	
+	
+	
+	
+	return 0;
+	
+}
+
+
+#include <stdio.h>
+int main (){
+	
+	int n1=0, c=0;
+	
+	printf("Qual numero vc deseja gerar a tabuada?: ");
+	scanf("%d", &n1);
+	
+	do {
+		printf("%d x %d = %d\n", n1, c, n1*c);
+		c++;
+	} while (c<=25);
+	
+
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
+
+
+#include <stdio.h>
+int main (){
+	
+	char nome[60];
+	
+	printf("Digite o nome: ");
+	scanf("%60[^\n]%*c", nome);
+	
+	printf("o nome digitado foi: %s", nome);
+	
+	
+	
+	
+	return 0;
+}
+
+
+#include <stdio.h>
+int main (){
+	
+	
+	int SenhaTrue=2381;
+	int SenhaDigitada;
+	int tentativas=0;
+	int limitetentativas=3;
+	
+	printf("Digite a senha: ");
+	scanf("%d", &SenhaDigitada);
+	
+	tentativas++;
+	
+	
+	
+	while(SenhaDigitada!=SenhaTrue && tentativas<limitetentativas){
+		printf("Senha incorreta\n");
+		
+	tentativas++;
+		
+		if(tentativas<=limitetentativas){
+		
+		printf("Digite sua senha novamente: ");
+		scanf("%d", &SenhaDigitada);
+		}
+	}	
+	
+	if(SenhaDigitada==SenhaTrue){
+		printf("Acesso permitido");
+		
+	}else if (tentativas>=limitetentativas){
+		printf("Acesso bloqueado, voce excedeu o numero de tentativas.\n");
+	}
+	
+	
+		
+	return 0;
+}
+
+
+#include <stdio.h>
+
+int main (){
+	
+	float m;
+	
+	printf("Insira a nota :\n");
+	scanf("%f", &m);
+	
+	if(m >= 7.0){
+		printf("Aprovado(a)!\n");
+	} 
+	else {
+		printf("Reprovado(a)!\n");
+	}
+		
+	
+	return 0;
+}
+
+
+#include <stdio.h>
+int main(){
+	
+	char nome [50];
+	
+	printf("Digite o seu nome:");
+	
+	gets (nome);
+	printf("Nome: %s", nome);
+	
+	return 0;
+}
+
+
+
+#include <stdio.h>
+
+#define LINHAS 3
+#define COLUNAS 3
+
+int main() {
+    int matriz[LINHAS][COLUNAS]; // Declaração da matriz de inteiros
+    int i, j; // Declaração das variáveis de controle do loop
+
+    // Preenche a matriz
+    printf("Insira os elementos da matriz %d x %d:\n", LINHAS, COLUNAS);
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            printf("Elemento [%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Imprime a matriz
+    printf("\nMatriz inserida:\n");
+    for (i = 0; i < LINHAS; i++) {
+        for (j = 0; j < COLUNAS; j++) {
+            printf("%d\t", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+# include <stdio.h>
+int main (){
+	
+	int A, B, C, maior;
+	
+	scanf("%d", &A);
+	scanf("%d", &B);	
+	scanf("%d", &C);
+	
+	maior = A;
+	
+	if (B > maior){
+		maior = B;
+		
+	}
+	
+	if (C > maior){
+		maior = C;
+	}
+		
+	
+	printf("%d eh o maior\n", maior);	
+	
+
+	return 0;
+}
+
+
+# include <stdio.h>
+	
+	int	main (){
+		
+	int A;
+	double B;	
+		
+	scanf("%d", &A);
+	scanf("%lf", &B);
+	
+	float dist;
+	
+	dist = A/B;
+	
+	printf("%.3f km/l\n", dist);
+		
+			
+		return 0;
+	}
+
+
+# include <stdio.h>
+	int main (){
+		
+    double raio, volume, PI=3.14159;
+    
+
+    scanf("%lf", &raio);
+
+  
+    volume = (4 / 3.0) * PI * raio * raio * raio;
+
+  
+    printf("VOLUME = %.3lf\n", volume);
+		
+		return 0;
+	}
+
+#include <stdio.h>
+	int main (){
+		
+		int i=1;
+		
+		do{
+			printf("%d", i);
+			i++;
+			
+		}while (i<=10);
+}
+		
+		
+		
